@@ -15,7 +15,8 @@ format is defined independently of any consumer.
 |---|---|
 | [`apiext.dtd`](./apiext.dtd) | The grammar. A verified superset of WO's `WebObjectsDefinitions.dtd` — every shipped `.api` validates against it. |
 | [`FORMAT.md`](./FORMAT.md) | Field-by-field specification with examples. |
-| [`STATUS.md`](./STATUS.md) | What the format expresses today and what remains. |
+| [`DONE.md`](./DONE.md) | What the format expresses today. |
+| [`ROADMAP.md`](./ROADMAP.md) | Remaining work, each item linked to its issue. |
 | [`examples/`](./examples) | Illustrative `.apiext` files (not shipping elements) demonstrating specific features. |
 
 ## In brief
@@ -49,4 +50,5 @@ See [`FORMAT.md`](./FORMAT.md) for the full walkthrough — documentation, types
 
 Proposal stage; in use. The format drives the AjaxSlim element reference (in the
 [wonder-slim](https://github.com/undur/wonder-slim) repository) and a WOLips plugin preview. The
-vocabulary is still settling — see [`STATUS.md`](./STATUS.md) for what's present and what's open.
+vocabulary is still settling — see [`DONE.md`](./DONE.md) for what's present and [`ROADMAP.md`](./ROADMAP.md)
+for what's open.
