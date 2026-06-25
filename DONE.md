@@ -10,9 +10,8 @@ What the format expresses today, and the milestones behind it. For remaining wor
 
 The `.apiext` extended element-API format is live and consumed end-to-end.
 
-- **DTD** — [`apiext.dtd`](./apiext.dtd): a verified **superset** of WO's canonical
-  `WebObjectsDefinitions.dtd`. Validates vanilla `.api` files, the `.apiext` files, and WO's full
-  39-element `WebObjectsDefinitions.xml`.
+- **DTD** — [`apiext.dtd`](./apiext.dtd): a **superset** of the legacy `.api` grammar (see
+  [`legacy-api-format/`](./legacy-api-format)). Validates existing `.api` files and the `.apiext` files.
 - **Spec doc** — [`FORMAT.md`](./FORMAT.md): field-by-field semantics for tooling.
 - **Reference corpus** — all 14 AjaxSlim elements have authored `.apiext` files (in the
   [wonder-slim](https://github.com/undur/wonder-slim) repository).

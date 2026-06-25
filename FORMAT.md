@@ -15,9 +15,8 @@
 documentation, typed bindings, and an element-level passthrough flag — everything a tool needs to render
 a rich preview of a tag's API.
 
-The DTD [`apiext.dtd`](./apiext.dtd) validates all three of: existing `.api` files, our `.apiext` files,
-and WO's own canonical `WebObjectsDefinitions.xml` (39 elements). A document that validates against it is
-guaranteed parseable by a conforming consumer.
+The DTD [`apiext.dtd`](./apiext.dtd) validates both existing `.api` files and `.apiext` files. A document
+that validates against it is guaranteed parseable by a conforming consumer.
 
 > **Note — DTD limits.** A DTD constrains *structure*, not *value types*. Every attribute is `CDATA`
 > (untyped string): booleans are the literal strings `"true"`/`"false"` (or WO's `"YES"`/`"NO"`), and
@@ -196,11 +195,11 @@ For the record, AjaxSlim's reference page categorizes its elements like so (this
 | Activity (`trigger`) | AjaxBusySpinner, AjaxPing |
 | (none) | AjaxSortable |
 
-## Relationship to WO's DTD
+## Relationship to the legacy `.api` grammar
 
-WO ships `com/webobjects/appserver/WebObjectsDefinitions.dtd`. `apiext.dtd` keeps that vocabulary verbatim
+`apiext.dtd` keeps the legacy `.api` vocabulary
 (`wodefinitions`/`wo`/`binding`/`validation`/`and`/`or`/`count`/`bound`/`unbound`/`ungettable`/
-`unsettable`/`documentation`) and adds only the `.apiext` items above (`passthrough` on `<wo>`; `<doc>`
+`unsettable`/`documentation` — see [`legacy-api-format/`](./legacy-api-format)) and adds only the `.apiext` items above (`passthrough` on `<wo>`; `<doc>`
 under `<wo>`; `<doc>`, `<pull>`, `<push>` under `<binding>`; `<type>` — with an optional `interpretation`
 attribute — inside `<pull>`/`<push>`). So every existing `.api` validates unchanged (they carry no
 `.apiext` children), and the extension is additive.

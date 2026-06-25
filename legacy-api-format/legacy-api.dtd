@@ -1,0 +1,58 @@
+<!--
+  legacy-api.dtd
+
+  A DTD for the classic WebObjects `.api` binding-declaration format, derived from the element-definitions
+  catalog in the open-source WOLips IDE and the `.api` files distributed with WebObjects frameworks.
+
+  It represents the format's *declared* grammar. Note the format as it appears in real files is slightly
+  broader — see the accompanying README, "Used in practice but not in the DTD" (e.g. <image path>), and
+  the note below on <validation> nesting.
+-->
+
+<!-- Root: a set of element definitions. In practice always one <wo> per file. -->
+<!ELEMENT wodefinitions (#PCDATA | wo)*>
+
+<!-- An element/component definition. `class` is the (simple) class name. -->
+<!ELEMENT wo (#PCDATA | binding | validation | documentation)*>
+<!ATTLIST wo class               CDATA #IMPLIED>
+<!ATTLIST wo wocomponentcontent  CDATA #IMPLIED>
+
+<!-- A single binding. #PCDATA only: legacy bindings carry no child elements. -->
+<!ELEMENT binding (#PCDATA)>
+<!ATTLIST binding name         CDATA #IMPLIED>
+<!ATTLIST binding defaults     CDATA #IMPLIED>
+<!ATTLIST binding required     CDATA #IMPLIED>
+<!ATTLIST binding settable     CDATA #IMPLIED>
+<!ATTLIST binding passthrough  CDATA #IMPLIED>
+
+<!--
+  A cross-binding rule. The message fires when the contained predicates hold (the rule describes the
+  INVALID state). Nominally a <validation> contains <and>/<count>; real files also place the leaf
+  predicates directly inside it (see README) — that looser usage is not reflected in this grammar.
+-->
+<!ELEMENT validation (#PCDATA | and | count)*>
+<!ATTLIST validation message CDATA #IMPLIED>
+
+<!-- Boolean combinators over predicates. -->
+<!ELEMENT and (#PCDATA | or | bound | unbound | count | ungettable | unsettable)*>
+<!ELEMENT or  (#PCDATA | bound | unbound | unsettable)*>
+
+<!-- Count-based predicate: fires when the number of true child predicates satisfies `test`. -->
+<!ELEMENT count (#PCDATA | bound | or)*>
+<!ATTLIST count test CDATA #IMPLIED>
+
+<!-- Leaf predicates, each naming a binding. -->
+<!ELEMENT bound      (#PCDATA)>
+<!ATTLIST bound      name CDATA #IMPLIED>
+<!ELEMENT unbound    (#PCDATA)>
+<!ATTLIST unbound    name CDATA #IMPLIED>
+<!ELEMENT ungettable (#PCDATA)>
+<!ATTLIST ungettable name CDATA #IMPLIED>
+<!ELEMENT unsettable (#PCDATA)>
+<!ATTLIST unsettable name CDATA #IMPLIED>
+
+<!-- A pointer to external documentation resources. Declared, but unused in the corpus. -->
+<!ELEMENT documentation (#PCDATA)>
+<!ATTLIST documentation directory CDATA #IMPLIED>
+<!ATTLIST documentation domain    CDATA #IMPLIED>
+<!ATTLIST documentation path      CDATA #IMPLIED>

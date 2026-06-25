@@ -3,25 +3,25 @@
 
   PURPOSE
   This DTD validates BOTH:
-    (a) the classic WebObjects .api format (Apple's WebObjectsDefinitions.dtd vocabulary), so existing
+    (a) the classic WebObjects .api format (the legacy vocabulary — see legacy-api-format/), so existing
         .api files validate unchanged, AND
-    (b) the .apiext extension used by AjaxSlim, which adds per-element/per-binding documentation, typed
-        bindings, and an element-level passthrough flag.
+    (b) the .apiext extension, which adds per-element/per-binding documentation, typed bindings,
+        directionality, value interpretation, and an element-level passthrough flag.
   It is intended as a working contract for tooling (e.g. a WOLips fork) that reads a document validated
   against this DTD and renders a tag's API preview from it. Everything needed for that preview is
   declarable here.
 
-  RELATIONSHIP TO WO's DTD
-  Apple ships com/webobjects/appserver/WebObjectsDefinitions.dtd. This DTD is a SUPERSET: it keeps that
-  vocabulary verbatim (wodefinitions/wo/binding/validation/and/or/count/bound/unbound/ungettable/
-  unsettable/documentation) and adds the .apiext elements/attributes marked "EXTENSION" below. It is also
-  deliberately PERMISSIVE about validation nesting to match real-world files: although WO's DTD nominally
-  restricts <validation> children to <and>/<count>, real .api/.apiext files frequently place the
-  predicate elements (<bound>/<unbound>/...) DIRECTLY under <validation>, so we allow that here.
+  RELATIONSHIP TO THE LEGACY .api GRAMMAR
+  This DTD is a SUPERSET of the legacy .api grammar: it keeps that vocabulary
+  (wodefinitions/wo/binding/validation/and/or/count/bound/unbound/ungettable/unsettable/documentation)
+  and adds the .apiext elements/attributes marked "EXTENSION" below. It is also deliberately PERMISSIVE
+  about validation nesting to match real-world files: although the legacy grammar nominally restricts
+  <validation> children to <and>/<count>, real .api/.apiext files frequently place the predicate
+  elements (<bound>/<unbound>/...) DIRECTLY under <validation>, so we allow that here.
 
-  All attributes are CDATA #IMPLIED, matching WO: the format is untyped strings (e.g. boolean values are
-  the strings "true"/"false" or "YES"/"NO"). Typing/validation of those values is a tooling concern, not
-  expressed in the DTD.
+  All attributes are CDATA #IMPLIED, matching .api: the format is untyped strings (e.g. boolean values
+  are the strings "true"/"false" or "YES"/"NO"). Typing/validation of those values is a tooling concern,
+  not expressed in the DTD.
 
   USAGE
     <!DOCTYPE wodefinitions SYSTEM "apiext.dtd">

@@ -13,10 +13,11 @@ format is defined independently of any consumer.
 
 | File | What it is |
 |---|---|
-| [`apiext.dtd`](./apiext.dtd) | The grammar. A verified superset of WO's `WebObjectsDefinitions.dtd` — every shipped `.api` validates against it. |
+| [`apiext.dtd`](./apiext.dtd) | The grammar. A superset of the legacy `.api` grammar — existing `.api` files validate against it. |
 | [`FORMAT.md`](./FORMAT.md) | Field-by-field specification with examples. |
 | [`DONE.md`](./DONE.md) | What the format expresses today. |
 | [`ROADMAP.md`](./ROADMAP.md) | Remaining work, each item linked to its issue. |
+| [`legacy-api-format/`](./legacy-api-format) | A precise record of the classic WebObjects `.api` format `.apiext` extends — the `.api` DTD and a detailed, corpus-verified description. |
 | [`examples/`](./examples) | Illustrative `.apiext` files (not shipping elements) demonstrating specific features. |
 
 ## In brief

@@ -2,16 +2,15 @@
 <!--
   ILLUSTRATIVE EXAMPLE - not a shipping element, not normative.
 
-  WOCheckBox is the clean case for a GENUINE type split that is also honest both ways (verified against
-  the WO 5.5 source, com/webobjects/appserver/_private/WOCheckBox.java):
+  WOCheckBox is a clean case for a GENUINE type split that is also honest both ways:
 
-    `checked` PULLS via booleanValueInComponent() - i.e. read by TRUTHINESS, so its pull type is
-    java.lang.Object interpretation="truthy" (any value, coerced to a boolean: null/0/false are false).
-    `checked` PUSHES Boolean.valueOf(selected) back - a hard java.lang.Boolean, every time.
+    `checked` is PULLED as a boolean by truthiness, so its pull type is java.lang.Object with
+    interpretation="truthy" (any value, coerced: null/0/false are false).
+    `checked` is PUSHED back as a java.lang.Boolean (the checked/unchecked state), every time.
 
   So `checked` renders as a two-row split: Object (truthy) -> Boolean. It exercises BOTH the directionality
-  split (different pull/push types) AND the truthy interpretation in a single binding. See
-  docs/APIEXT_FORMAT.md, "Directionality" and "Interpretation".
+  split (different pull/push types) AND the truthy interpretation in a single binding. See FORMAT.md,
+  "Directionality" and "Interpretation".
 -->
 <wodefinitions>
 	<wo class="WOCheckBox" wocomponentcontent="false" passthrough="true">
